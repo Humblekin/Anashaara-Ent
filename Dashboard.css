@@ -1,0 +1,578 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+  background-color: white;
+}
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0 ;
+    z-index: 99999;
+     
+}
+
+
+nav a{
+    color: cyan;
+    font-weight: bolder;
+    font-size: x-large;
+    text-decoration: none;
+}
+
+nav span a img{
+     width: 28px;
+}
+
+
+ul{
+    display: flex;
+     gap: 25px;
+}
+
+
+ul li{
+    list-style-type: none;
+    color: aqua;
+    font-weight: 600;
+    font-size: large;
+}
+
+ul li:hover{
+    background-color: gold;
+    /* opacity: 0.3; */
+    transition: all 0.4s ease;
+    color: black;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 2px;
+   cursor: pointer;
+}
+ul li a{
+    font-size: large;
+}
+
+ul li a:hover{
+   background-color: gold;
+   overflow: hidden;
+   transition: all 0.2s ease;
+   color: black;
+   padding-left: 4px;
+   padding-right: 4px;
+   border-radius: 2px;
+}
+
+
+/* menubar handling section */
+#menu{
+    margin-top: 0px;
+    position: absolute;
+    right: 1px;
+    width: 250px;
+    top: 10px;
+    background-color: blue;
+    padding: 40px;
+    height: 100%;
+    z-index: 9999999;
+    display: none;
+    transition: 1.6s all ease;
+}
+
+ #menu ul{
+     display:flex;
+     flex-direction: column;
+ }
+
+
+ #menu ul li{
+    color: black;
+
+ }
+
+  #menu ul li a{
+    text-decoration: none;
+    color: black;
+  }
+
+  /* #menu ul  a:hover{
+    background-color: ;
+  } */
+
+ #menu-box{
+    display: none;
+ }
+
+  #menu-box img{
+    width: 24px;
+  }
+
+#close img{
+    width: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Featues section */
+#Features{
+    margin-top: 70px;
+    padding: 40px;
+    height: 500px;
+    /* background-color: gainsboro; */
+    padding: 40px;
+    background-color: #1e0941;
+     position: relative;
+}
+
+#Features h2{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: aqua;
+    border-radius: 10px;
+}
+
+.features-box1 div p{
+     color: yellow;
+}
+.features-box1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.features-box1 h2{
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.features-box1 p{
+    font-size: large;
+    color: white;
+}
+
+.Features-box2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.feature-cards{
+    width: 180px;
+    padding: 40px;
+    background-color:aqua;
+    height: 295px;
+    border-radius: 10px;
+    text-align: center;
+    /* z-index: 200; */
+   
+    
+}
+
+.feature-cards:hover{
+    transform: translateY(-8px);
+    transition: 0.3s all ease;
+    border-color:blueviolet;
+    border: 2px;
+    box-shadow: 0 0 20px aqua, 0 0 40px aqua;
+}
+
+
+/* materials section */
+
+#Materials{
+    background-color: #1e0941;
+  height: 100%;
+  /* background-color: cornflowerblue; */
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.materials-box1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.materials-box1 h2{
+    color:aqua;
+}
+
+.materials-box1 p{
+    color: white;
+}
+
+.materials-box2{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+}
+
+.materials-cards{
+    width: 200px;
+    height: 200px;
+    /* background-color: aqua; */
+    text-align: center;
+    border-radius: 15px;
+    color: aqua;
+}
+
+
+
+.materials-cards img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+
+
+
+/* About me section */
+
+span{
+    font-weight: bold;
+    font-size: larger;
+    color: chartreuse;
+}
+
+#About{
+    background-color: #1e0941;
+    
+}
+
+.about-box1{
+    margin: 20px auto;
+    /* background-color: gray; */
+    width: 80%;
+    
+     
+}
+
+.about-box1 h2{
+    text-align: center;
+    color: aqua;
+}
+
+
+.about-box1 p{
+    color: white;
+}
+
+
+.about-box2{
+    /* display: flex; */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: greenyellow;
+}
+
+
+
+
+   /* About CEO secvtion */
+
+
+   #About-CEO{
+      background-color: blueviolet;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+   }
+
+
+   #CEO-box{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+    border-radius: 20px;
+    
+   }
+
+   .CEOabout-box{
+       background-color: gainsboro;
+       margin-left: 10px;
+       padding: 10px;
+       border-radius: 10px;
+       font-size: larger;
+      
+   }
+
+   .CEOabout-box h2{
+         text-align: center;
+         color:blue;
+         display: block;
+   }
+
+   #CEO-box img{
+     width: 150px;
+     height: 300px;
+     border-radius: 6px;
+   }
+
+
+   #Contact-sect{
+      border-radius: 4px;
+      padding: 50px;
+      background-color: blueviolet;
+   }
+
+   #Contact-sect h2{
+     text-align: center;
+      color: aqua;
+   }
+
+   #Contact-sect p{
+       font-weight: bolder;
+       margin-right: 20px;
+       color: lawngreen;
+   }
+
+
+
+   #social-handles{
+        /* width: 100%; */
+        display: flex;
+        align-items:center;
+        background-color: aliceblue;
+        justify-content: space-evenly;
+        border-radius: 10px;
+   }
+
+    #social-handles a img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        
+        
+    }
+
+    #social-handles a{
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    #social-handles img:hover{
+        transform: translatey(8px);
+        transition: 0.9s all ease;
+    }
+
+
+
+/* general container */
+
+section{
+    background-color: navy;
+    border-radius: 15px;
+}
+
+footer{
+    background-color:blue;
+    color: white;
+    padding: 20px;
+    z-index: 999999;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#btn{
+    background-color: aqua;
+    padding: 10px 40px;
+    border-radius: 15px;
+    outline: 0;
+    list-style-type: none;
+}
+
+#btn a{
+    text-decoration: none;
+    color: black;
+    font-weight: 525;
+
+}
+
+button:hover{
+    cursor: pointer;
+    border-color: blueviolet;
+    transform: translatey(-18px);
+    transition: 0.7s all ease;
+  
+  }
+
+
+
+  /* services section */
+
+    #service{
+        display: none;
+    }
+
+
+
+
+
+
+/* media queries  section*/
+
+@media only screen and (max-width:600px){
+
+    /* p{
+        color: yellow;
+    } */
+
+    nav{
+        width: 100%;
+        background-color: navy;
+    }
+
+
+    nav ul{
+        display: none;
+    }
+
+   #Features{
+    height: 100%;
+    width: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
+    flex-direction: column;
+    font-size: large;
+    margin-left: 60% auto ;
+    
+   }
+
+ .Features-box2{
+    display: flex;
+    flex-direction: column;
+    
+ }
+
+ #Materials{
+    background-color: #1e0941;
+    height: 100%;
+    padding: 50px;
+    border-radius: 10px;
+    margin-left: 60% auto;
+    width: 120%;
+   } 
+
+  #About{
+    width: 120%;    
+     margin-left: 60% auto;
+  }
+
+  .materials-box2{
+    justify-self: center;
+  }
+
+  
+  #About-CEO{
+      width: 120%;    
+     margin-left: 60% auto;
+     padding: 10px;
+     margin-bottom: 50px;
+  }
+
+  #Contact-sect{
+       width: 120%;    
+      margin-left: 60% auto;
+  }
+
+  .CEOabout-box{
+    width:200px;
+    padding: 2px;
+    /* background-color: yellow; */
+  }
+
+
+  #social-handles a img{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        
+        
+    }
+
+
+    #social-handles a {
+       font-size: small;
+
+    }
+
+
+    #menu{
+    position: absolute;
+    right: -80px;
+    width: 400px;
+    top: 0;
+    background-color: red;
+    padding: 40px;
+    height: 100%;
+    z-index: 999999999;
+   
+}
+
+#menu-box{
+    display: block;
+ }
+}
+  
+  
+  
+
+
+@media only screen and (min-width:768px){
+    nav{
+        width: 100%;
+    }
+
+
+    #Features{
+        width: 100%;
+        flex-direction: column;
+        
+       }
+    
+     
+
+       #Materials{
+         width: 100%;
+         
+       }
+      #About{
+        width: 100%;
+        
+      }
+    
+      
+}
+
+   
