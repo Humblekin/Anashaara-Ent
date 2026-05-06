@@ -3,111 +3,567 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Services - Anashaara Enterprise</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    *{
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
-    body{
-      background-color: #1e0941;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    nav{
-      background-color: black;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
 
-    nav span img{
-      width: 25px;
-    }
-    nav a{
-      text-decoration: none;
-      color: aqua;
-      font-weight: bold;
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
 
-    }
+        .nav-back {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-    #service{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      color: lawngreen;
-      margin-top: 20px;
-    }
+        .nav-back:hover {
+            background: var(--gradient);
+            border-color: transparent;
+        }
 
-    #servicebOx h2{
-      text-align: center;
-      font-weight: bolder;
-      color: aqua;
-      font-size: 2em;
-    }
-  </style>
+        .nav-back img {
+            width: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .logo {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-decoration: none;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-wrapper {
+            padding: 120px 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-category {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .service-category:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .service-category h2 {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .service-category h2 i {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .service-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .service-list li {
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .service-list li:hover {
+            background: rgba(255, 255, 255, 0.06);
+            padding-left: 1.5rem;
+        }
+
+        .service-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #60a5fa;
+            font-size: 0.8rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: var(--gradient);
+            border-radius: 20px;
+        }
+
+        .cta-section h3 {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient);
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: chatPulse 2s infinite;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-toggle.hidden {
+            display: none;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 360px;
+            height: 500px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: var(--transition);
+        }
+
+        .chatbot-window.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .chatbot-header {
+            background: var(--gradient);
+            padding: 1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header-info {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--white);
+        }
+
+        .chatbot-header-info i {
+            font-size: 1.8rem;
+        }
+
+        .chatbot-header-info h4 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .status {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .chatbot-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1.2rem;
+            overflow-y: auto;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            display: flex;
+            max-width: 85%;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+        }
+
+        .user-message {
+            align-self: flex-end;
+        }
+
+        .message-content {
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .bot-message .message-content {
+            background: var(--white);
+            color: var(--dark);
+            border: 1px solid #e2e8f0;
+            border-bottom-left-radius: 4px;
+        }
+
+        .user-message .message-content {
+            background: var(--gradient);
+            color: var(--white);
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .chatbot-input {
+            padding: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--white);
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .chatbot-input input:focus {
+            border-color: var(--primary);
+        }
+
+        .chatbot-input button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gradient);
+            border: none;
+            color: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-input button:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes chatPulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 40px rgba(37, 99, 235, 0.8);
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .section-header h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chatbot-window {
+                width: calc(100vw - 48px);
+                right: 0;
+                height: 450px;
+            }
+        }
+    </style>
 </head>
 <body>
-      <nav>
-     <span>
-       <a href="Dashboard.html"><img src="left-arrow.png" alt=""></a>      
-     </span>
+    <nav>
+        <a href="Dashboard.html" class="nav-back">
+            <img src="left-arrow.png" alt="Back">
+        </a>
+        <a href="index.html" class="logo">ANASHAARA ENTERPRISE</a>
+    </nav>
 
-    <a href="index.html">ANASHAARA ENTERPRISE</a>     
-   </nav>
-
-
-
-    <div id="servicebOx" >
-           <h2>Services</h2>
-           <div id="service">
-              <div>
-              <ul>
-          <li>Paint (Latex, Acrylic, Oil-based)</li>
-          <li>Wallpaper</li>
-          <li>Wood Paneling</li>
-          <li>Gypsum Board (Drywall)</li>
-          <li>Decorative Plaster (Venetian, Stucco)</li>
-          <li>Ceramic Tiles</li>
-          <li>Porcelain Tiles</li>
-          <li>Natural Stone (Marble, Granite, Slate)</li>
-          <li>Engineered Quartz</li>
-          <li>Laminate Flooring</li>
-          <li>Hardwood Flooring</li>
-          <li>Vinyl Flooring (LVP, LVT)</li>
-          <li>Carpet & Rugs</li>
-          <li>MDF (Medium-Density Fiberboard)</li>
-          <li>Plywood (Decorative Finishes)</li>
-          <li>Glass (Mirrors, Frosted, Stained)</li>
-          <li>Acoustic Panels</li>
-          <li>Metal Cladding (Brass, Copper, Stainless Steel)</li>
-         </ul>
-         </div>
-            <br>
-        <div>
-            <ul>
-          <li>Decorative Moldings (Crown, Baseboard, Wainscoting)</li>
-          <li>3D Wall Panels (PVC, Gypsum, Wood)</li>
-          <li>Bamboo Flooring/Wall Coverings</li>
-          <li>Cork Wall & Floor Tiles</li>
-          <li>Fabric Wall Coverings</li>
-          <li>Decorative Concrete (Polished, Stamped)</li>
-          <li>False Ceiling Materials (POP, Gypsum, Metal)</li>
-          <li>LED Panels & Decorative Lighting Fixtures</li>
-          <li>Wall Art & Cladding (Resin, Acrylic)</li>
-          <li>Decorative Brick & Stone Veneers</li>
-          <li>PVC Wall Panels</li>
-          <li>Wall Decals & Stickers</li>
-         </ul>
+    <div class="services-wrapper">
+        <div class="section-header">
+            <span class="section-tag">What We Provide</span>
+            <h1>Our Services</h1>
         </div>
-           </div>
-         
-       
 
+        <div class="services-grid">
+            <div class="service-category">
+                <h2><i class="fas fa-paint-roller"></i> Wall Finishes</h2>
+                <ul class="service-list">
+                    <li>Paint (Latex, Acrylic, Oil-based)</li>
+                    <li>Wallpaper</li>
+                    <li>Wood Paneling</li>
+                    <li>Gypsum Board (Drywall)</li>
+                    <li>Decorative Plaster (Venetian, Stucco)</li>
+                    <li>3D Wall Panels (PVC, Gypsum, Wood)</li>
+                    <li>Fabric Wall Coverings</li>
+                    <li>Wall Decals & Stickers</li>
+                    <li>Decorative Brick & Stone Veneers</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h2><i class="fas fa-th-large"></i> Flooring Solutions</h2>
+                <ul class="service-list">
+                    <li>Ceramic Tiles</li>
+                    <li>Porcelain Tiles</li>
+                    <li>Natural Stone (Marble, Granite, Slate)</li>
+                    <li>Engineered Quartz</li>
+                    <li>Laminate Flooring</li>
+                    <li>Hardwood Flooring</li>
+                    <li>Vinyl Flooring (LVP, LVT)</li>
+                    <li>Carpet & Rugs</li>
+                    <li>Bamboo Flooring/Wall Coverings</li>
+                    <li>Cork Wall & Floor Tiles</li>
+                    <li>Decorative Concrete (Polished, Stamped)</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h2><i class="fas fa-layer-group"></i> Materials & Panels</h2>
+                <ul class="service-list">
+                    <li>MDF (Medium-Density Fiberboard)</li>
+                    <li>Plywood (Decorative Finishes)</li>
+                    <li>Glass (Mirrors, Frosted, Stained)</li>
+                    <li>Acoustic Panels</li>
+                    <li>Metal Cladding (Brass, Copper, Stainless Steel)</li>
+                    <li>PVC Wall Panels</li>
+                    <li>Wall Art & Cladding (Resin, Acrylic)</li>
+                    <li>Decorative Moldings (Crown, Baseboard, Wainscoting)</li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h2><i class="fas fa-lightbulb"></i> Ceiling & Lighting</h2>
+                <ul class="service-list">
+                    <li>False Ceiling Materials (POP, Gypsum, Metal)</li>
+                    <li>LED Panels & Decorative Lighting Fixtures</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Ready to Build Your Dream?</h3>
+            <p>Contact us today for expert advice and competitive pricing on all building materials.</p>
+            <a href="https://wa.me/+233505678263" target="_blank" class="btn btn-white">
+                <i class="fab fa-whatsapp"></i> Chat With Us
+            </a>
+        </div>
     </div>
+
+    <!-- Floating Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h4>Anashaara Assistant</h4>
+                        <span class="status">Online</span>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hello! Want to know more about our services? Ask me anything!</p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your message...">
+                <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

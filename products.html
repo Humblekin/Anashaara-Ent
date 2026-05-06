@@ -3,138 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Products - Anashaara Enterprise</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-
-        body{
-            background-color: #1e0941;
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
 
-        #wrapper{
-             background-color: white;
-             max-width: 400px ;
-             margin-top: 20px auto;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             justify-self: center;
-             margin-top: 200px;
-             padding: 40px;
-             border-radius: 10px;
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
 
-
-        h2{
-            color: blue;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
 
-        nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right:0 ;
-    z-index: 99999;
-}
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
 
-nav a{
-    color: cyan;
-    font-weight: bolder;
-    font-size: x-large;
-    text-decoration: none;
-}
+        .nav-back {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
+        .nav-back:hover {
+            background: var(--gradient);
+            border-color: transparent;
+        }
 
+        .nav-back img {
+            width: 20px;
+            filter: brightness(0) invert(1);
+        }
 
+        .logo {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-decoration: none;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
 
-ul{
-    display: flex;
-     gap: 25px;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
 
-ul li{
-    list-style-type: none;
-    color: aqua;
-    font-weight: 600;
-    font-size: large;
-}
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
 
-ul li:hover{
-    background-color: gold;
-    /* opacity: 0.3; */
-    transition: all 0.4s ease;
-    color: black;
-    padding-left: 4px;
-    padding-right: 4px;
-    border-radius: 2px;
-   cursor: pointer;
-}
-ul li a{
-    font-size: large;
-}
+        .nav-links a:hover {
+            color: var(--white);
+        }
 
-ul li a:hover{
-   background-color: gold;
-   overflow: hidden;
-   transition: all 0.2s ease;
-   color: black;
-   padding-left: 4px;
-   padding-right: 4px;
-   border-radius: 2px;
-}
+        .coming-soon-wrapper {
+            text-align: center;
+            max-width: 600px;
+        }
 
+        .coming-soon-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+            color: var(--white);
+            animation: pulse 2s infinite;
+        }
 
-#video-section{
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: blue;
-    padding: 40px;
-}
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(37, 99, 235, 0);
+            }
+        }
 
+        .coming-soon-wrapper h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
 
-video{
-    width: 338px;
-    height: 300px;
+        .coming-soon-wrapper p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
 
-    border-radius: 8px;
-}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+        }
 
-span a img{
-    width: 30px;
-    color: aqua;
-}
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+        }
 
+        .progress-bar {
+            width: 200px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+        }
 
+        .progress-fill {
+            height: 100%;
+            width: 65%;
+            background: var(--gradient);
+            border-radius: 10px;
+            animation: progress 2s ease-in-out infinite;
+        }
 
+        @keyframes progress {
+            0%, 100% { width: 65%; }
+            50% { width: 85%; }
+        }
 
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient);
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: chatPulse 2s infinite;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-toggle.hidden {
+            display: none;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 360px;
+            height: 500px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: var(--transition);
+        }
+
+        .chatbot-window.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .chatbot-header {
+            background: var(--gradient);
+            padding: 1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header-info {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--white);
+        }
+
+        .chatbot-header-info i {
+            font-size: 1.8rem;
+        }
+
+        .chatbot-header-info h4 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .status {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .chatbot-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1.2rem;
+            overflow-y: auto;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            display: flex;
+            max-width: 85%;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+        }
+
+        .user-message {
+            align-self: flex-end;
+        }
+
+        .message-content {
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .bot-message .message-content {
+            background: var(--white);
+            color: var(--dark);
+            border: 1px solid #e2e8f0;
+            border-bottom-left-radius: 4px;
+        }
+
+        .user-message .message-content {
+            background: var(--gradient);
+            color: var(--white);
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .chatbot-input {
+            padding: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--white);
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .chatbot-input input:focus {
+            border-color: var(--primary);
+        }
+
+        .chatbot-input button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gradient);
+            border: none;
+            color: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-input button:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes chatPulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 40px rgba(37, 99, 235, 0.8);
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .coming-soon-wrapper h1 {
+                font-size: 1.8rem;
+            }
+
+            .chatbot-window {
+                width: calc(100vw - 48px);
+                right: 0;
+                height: 450px;
+            }
+        }
     </style>
 </head>
 <body>
-<nav>
-<span>
-       <a href="Dashboard.html"><img src="left-arrow.png" alt=""></a>
-     </span>
+    <nav>
+        <a href="Dashboard.html" class="nav-back">
+            <img src="left-arrow.png" alt="Back">
+        </a>
+        <a href="index.html" class="logo">ANASHAARA ENTERPRISE</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Dashboard.html">Features</a></li>
+        </ul>
+    </nav>
 
-    <a href="index.html">ANASHAARA ENTERPRISE</a>
-    <ul>
-        <li>Home</li>
-        <li>Cart</li>
-    </ul>
-</nav>
-
-    <div id="wrapper">
-       <h2>Ordering  section coming soon!!!!!!</h2>
+    <div class="coming-soon-wrapper">
+        <div class="coming-soon-icon">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+        <h1>Coming Soon!</h1>
+        <p>Our ordering system is under construction. We're working hard to bring you an amazing shopping experience.</p>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <a href="Dashboard.html" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Back to Features
+        </a>
     </div>
 
-      
+    <!-- Floating Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h4>Anashaara Assistant</h4>
+                        <span class="status">Online</span>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hello! Our ordering system is coming soon. How else can I help you?</p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your message...">
+                <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
